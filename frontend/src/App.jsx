@@ -31,7 +31,7 @@ function App() {
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ title, description }),
       });
-      if (!response.ok) throw new Error("Error al guardar la tarea.");
+      if (!response.ok) throw new Error("Error al guardar.");
       const data = await response.json();
       dispatch({ type: "ADD_TASK", payload: data });
     } catch (err) {
@@ -48,6 +48,28 @@ function App() {
           body: JSON.stringify({ completed: !task.completed }),
         });
         if (!response.ok) throw new Error("Error al actualizar.");
+        const data = await response.json();
+        dispatch({ type: "EDIT_TASK", payload: data });
+      } catch (err) {
+        console.error(err.message);
+      }
+    },
+    [dispatch],
+  );
+
+  // NUEVA FUNCIÓN: Editar texto completo
+  const handleEditTask = useCallback(
+    async (id, newTitle, newDescription) => {
+      try {
+        const response = await fetch(`${API_BASE_URL}/${id}`, {
+          method: "PUT",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({
+            title: newTitle,
+            description: newDescription,
+          }),
+        });
+        if (!response.ok) throw new Error("Error al editar.");
         const data = await response.json();
         dispatch({ type: "EDIT_TASK", payload: data });
       } catch (err) {
@@ -89,10 +111,13 @@ function App() {
         Dashboard <span>Marketing</span>
       </h1>
       <TaskForm onAdd={handleAddTask} />
+
+      {/* Pasamos la nueva función onEdit */}
       <TaskList
         tasks={tasks}
         onToggle={handleToggleTask}
         onDelete={handleDeleteTask}
+        onEdit={handleEditTask}
       />
     </div>
   );
