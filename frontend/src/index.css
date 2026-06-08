@@ -1,0 +1,146 @@
+/* Reset básico para evitar encimamientos */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background-color: #121212;
+  color: #f5f5f5;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  line-height: 1.6;
+}
+
+/* Tipografía y espaciado de Títulos */
+h1,
+h2,
+h3,
+h4 {
+  color: #fff;
+  line-height: 1.2;
+  margin-bottom: 1rem; /* Esto evita que se encimen con el texto de abajo */
+}
+
+h1 span {
+  color: #deff9a;
+}
+
+/* Contenedor Principal */
+.app-container {
+  max-width: 700px;
+  margin: 40px auto;
+  padding: 0 20px;
+}
+
+.text-center {
+  text-align: center;
+  margin-bottom: 40px;
+}
+
+/* Formularios y Buscadores */
+.card-form {
+  background-color: #1a1a1a;
+  border: 1px solid #333;
+  padding: 24px;
+  border-radius: 12px;
+  margin-bottom: 30px;
+}
+
+.input-field {
+  width: 100%;
+  padding: 12px 16px;
+  margin-bottom: 15px;
+  border-radius: 8px;
+  border: 1px solid #444;
+  background-color: #222;
+  color: #fff;
+  font-size: 16px;
+  transition: border-color 0.3s ease;
+}
+
+.input-field:focus {
+  outline: none;
+  border-color: #deff9a;
+}
+
+.btn-primary {
+  padding: 10px 20px;
+  background-color: #deff9a;
+  color: #000;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  font-weight: bold;
+  font-size: 15px;
+  transition: background-color 0.2s ease;
+}
+
+.btn-primary:hover {
+  background-color: #c5e67a;
+}
+
+/* Tarjetas de Tareas */
+.task-card {
+  background-color: #1a1a1a;
+  border: 1px solid #333;
+  padding: 20px;
+  margin-bottom: 16px;
+  border-radius: 12px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 20px;
+}
+
+.task-info {
+  flex-grow: 1;
+}
+
+.task-title {
+  margin-bottom: 6px;
+  font-size: 18px;
+}
+
+.task-title.completed {
+  text-decoration: line-through;
+  color: #777;
+}
+
+.task-desc {
+  color: #aaa;
+  font-size: 14px;
+}
+
+.task-actions {
+  display: flex;
+  gap: 10px;
+}
+
+.btn-secondary {
+  padding: 8px 16px;
+  background-color: #333;
+  color: #fff;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 14px;
+}
+
+.btn-secondary:hover {
+  background-color: #444;
+}
+
+.btn-danger {
+  padding: 8px 16px;
+  background-color: #ff6b6b;
+  color: #fff;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 14px;
+}
+
+.btn-danger:hover {
+  background-color: #ee5253;
+}
